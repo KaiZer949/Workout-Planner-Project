@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="workout-planner.client/workout-planner.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="workout-planner.Server/workout-planner.Server.csproj" />
+</Solution>
