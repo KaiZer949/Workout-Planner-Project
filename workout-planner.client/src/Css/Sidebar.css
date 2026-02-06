@@ -1,0 +1,57 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    padding-top: 20px;
+    padding-left: 30px;
+    z-index: 1000;
+}
+
+.sidebar-nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    margin: 15px 0;
+}
+
+.sidebar-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+    .sidebar-nav a:hover {
+        color: #ccc;
+    }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        left: -250px; /* Sidebar hidden offscreen by default */
+        width: 200px;
+        transition: left 0.3s ease;
+    }
+
+        .sidebar.open {
+            left: 0; /* Sidebar visible when the 'open' class is added */
+        }
+
+    .sidebar-nav a {
+        font-size: 16px; /* Smaller font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 150px; /* Even narrower sidebar on small screens */
+    }
+
+    .sidebar-nav a {
+        font-size: 14px; /* Smaller font size for mobile */
+    }

@@ -1,6 +1,6 @@
 function Topbar() {
   return (
-    <p>Hello world!</p>
+    <p>Welcome to workout planner.</p>
   );
 }
 

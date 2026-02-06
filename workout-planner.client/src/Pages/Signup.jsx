@@ -1,6 +1,14 @@
 import "/src/Css/Signup.css"; 
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate('/Login');
+    }
+
     return (
         <div className="signup-container">
             <div className="signup-title">Sign Up</div>
@@ -25,7 +33,7 @@ function Signup() {
                 <input type="password" placeholder="Repeat password" />
             </div>
 
-            <span className="switch-link" >
+            <span className="switch-link" onClick={handleClick}>
                 Already have an account? Login
             </span>
 

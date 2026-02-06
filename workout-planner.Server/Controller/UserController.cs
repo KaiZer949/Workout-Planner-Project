@@ -28,6 +28,7 @@ namespace workout_planner.Server.Controller
         {
             return _db.Users.ToList();
         }
+
         [HttpPost]
         [Route("AddUser")]
         [ProducesResponseType(200)]

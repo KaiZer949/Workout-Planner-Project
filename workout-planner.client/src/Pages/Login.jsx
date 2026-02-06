@@ -1,8 +1,13 @@
 import "/src/Css/Login.css"
-//import { useNavigate } from "react-router-dom";
+import Signup from "./Signup"
+import { useNavigate } from "react-router-dom";
 function Login() {
 
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate('/Signup');
+    }
 
     return (
         <div className="login-container">
@@ -15,7 +20,9 @@ function Login() {
                 <label>Password:</label>
                 <input type="password" />
             </div>
-            <a href="">Don't have an account? Signup</a>
+            <span className="switch-link" onClick={handleClick}>
+                Don't have an account yet? Signup here
+            </span>
             <button>Login</button>
         </div>
   );
