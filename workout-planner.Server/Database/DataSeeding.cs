@@ -5,7 +5,7 @@ namespace workout_planner.Server.Database
 {
     public static class DataSeeding
     {
-        public static void Seeding(ModelBuilder model)
+        public static  void Seeding(ModelBuilder model)
         {
             model.Entity<Users>().HasData(
 
