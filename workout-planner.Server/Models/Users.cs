@@ -1,4 +1,4 @@
-﻿namespace workout_planner.Server.Entities
+﻿namespace workout_planner.Server.Models
 {
 
     public enum Roles
@@ -8,7 +8,6 @@
         Admin
 
     }
-
 
     public class Users
     {

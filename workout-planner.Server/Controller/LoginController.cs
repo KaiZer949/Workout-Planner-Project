@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
-using System.Threading.Tasks;
 using workout_planner.Server.Database;
 using workout_planner.Server.DTO;
 using workout_planner.Server.JWT;

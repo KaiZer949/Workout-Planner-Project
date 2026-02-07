@@ -2,7 +2,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using workout_planner.Server.Entities;
+using workout_planner.Server.Models;
 
 namespace workout_planner.Server.JWT
 {
