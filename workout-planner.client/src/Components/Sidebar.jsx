@@ -1,18 +1,48 @@
-import "/src/Css/Sidebar.css"
+import React from 'react';
+import {
+    FaHome,
+    FaChartLine,
+    FaWallet,
+    FaUserCog,
+    FaSignOutAlt
+} from 'react-icons/fa';
+import '/src/Css/Sidebar.css';
 
-function Sidebar() {
+const Sidebar = () => {
     return (
-        <div className="sidebar">
-            <nav className="sidebar-nav">
+        <aside className="sidebar">
+            <div className="sidebar-logo">
+                <div className="logo-icon">G</div>
+                <span className="logo-text">Workout Tracker</span>
+            </div>
+
+            <nav className="sidebar-menu">
+                <p className="menu-label">Main Menu</p>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li className="menu-item active">
+                        <FaHome className="icon" />
+                        <span>Dashboard</span>
+                    </li>
+                    <li className="menu-item">
+                        <FaChartLine className="icon" />
+                        <span>Workouts</span>
+                    </li>
+                </ul>
+
+                <p className="menu-label">Account</p>
+                <ul>
+                    <li className="menu-item">
+                        <FaUserCog className="icon" />
+                        <span>Profile</span>
+                    </li>
+                    <li className="menu-item logout">
+                        <FaSignOutAlt className="icon" />
+                        <span>Logout</span>
+                    </li>
                 </ul>
             </nav>
-        </div>
+        </aside>
     );
-}
+};
 
 export default Sidebar;

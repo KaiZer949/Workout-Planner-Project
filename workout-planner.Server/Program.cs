@@ -7,6 +7,17 @@ using workout_planner.Server.JWT;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// For react api to properly fetch data 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReact",
+        policy => policy
+            .WithOrigins("http://localhost:5173") // React dev server
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
+
 //ConnectionString
 
 var connectionString = builder.Configuration.GetConnectionString("DbConnect");
@@ -57,6 +68,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+
+
+app.UseCors("AllowReact");
 
 app.UseAuthorization();
 
