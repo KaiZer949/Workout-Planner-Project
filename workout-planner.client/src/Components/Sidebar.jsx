@@ -20,7 +20,7 @@ const Sidebar = () => {
                 <p className="menu-label">Main Menu</p>
                 <ul>
                     <li className="menu-item active">
-                        <FaHome className="icon" />
+                        <FaHome className="icon" />                         
                         <span>Dashboard</span>
                     </li>
                     <li className="menu-item">

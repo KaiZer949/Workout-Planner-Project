@@ -19,5 +19,19 @@ namespace workout_planner.Server.Controller
             _db = db;
             _jwt = jwt;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> checkUserForLogin([FromBody] LoginDTO dto)
+        {
+            if (dto == null) return BadRequest("Add respective credentials.");
+
+            var userFound = await _db.Users.Where((e) => e.Username == dto.Username && e.Password == dto.Password).FirstOrDefaultAsync();
+            
+            if(userFound == null) return NotFound("No such user found"); 
+                
+            return Ok("User found");
+
+        }
+
     }
 }

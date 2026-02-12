@@ -37,20 +37,23 @@ namespace workout_planner.Server.Controller
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task AddUsers([FromBody] Users user)
+        public async Task<IActionResult> AddUsers([FromBody] UserDTO user)
         {
+            if (user == null) return BadRequest("No user to add");
         
             var newUser = new Users()
             {
-
                 Name = user.Name,
-                Username = user.Username,
+                Username = user.UserName,
                 Password = user.Password,
-                Roles = user.Roles,
+                Roles = user.Role,
+
             };
 
             await _db.Users.AddAsync(newUser);
             await _db.SaveChangesAsync();
+
+            return Ok("User Added successfully");
 
         }
 
