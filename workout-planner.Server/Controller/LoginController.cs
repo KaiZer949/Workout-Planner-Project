@@ -29,7 +29,11 @@ namespace workout_planner.Server.Controller
             
             if(userFound == null) return NotFound("No such user found"); 
                 
-            return Ok("User found");
+            var token = await _jwt.GenerateToken(userFound);
+            if (token == null) return BadRequest("No token generated, user is null");
+            var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);    //added this cuz we dont want an entire internal object structure generated, we want only the token
+
+            return Ok(jwtToken);
 
         }
 
