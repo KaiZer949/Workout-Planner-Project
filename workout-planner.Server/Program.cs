@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
+using System.Text.Json.Serialization;
 using workout_planner.Server.Database;
 using workout_planner.Server.JWT;
 
@@ -19,13 +20,19 @@ builder.Services.AddCors(options =>
 
 
 //ConnectionString
-
 var connectionString = builder.Configuration.GetConnectionString("DbConnect");
 
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>          
+    {
+        options.JsonSerializerOptions.Converters.Add(
+            new JsonStringEnumConverter());                //added this so we can see Enum as strings not as integers 1 2 ....
+    });
+
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddConnections();

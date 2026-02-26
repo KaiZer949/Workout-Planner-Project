@@ -13,6 +13,30 @@ namespace workout_planner.Server.Database
                 new Users { Id = 2, Name = "User", Username = "User1", Password = "user", Roles = Roles.User }
 
             );
+
+            model.Entity<Exercise>().HasData(
+
+                new Exercise { ExerciseId = 1, ExerciseName = "Barbell Curl", musclegrp = MuscleGrp.Biceps },
+
+                new Exercise { ExerciseId = 2, ExerciseName = "Hammer Curl", musclegrp = MuscleGrp.Biceps },
+
+                new Exercise { ExerciseId = 3, ExerciseName = "Skull Crushers", musclegrp = MuscleGrp.Triceps },
+
+                new Exercise { ExerciseId = 4, ExerciseName = "Triceps Pushdown", musclegrp = MuscleGrp.Triceps },
+
+                new Exercise { ExerciseId = 5, ExerciseName = "Plank", musclegrp = MuscleGrp.Abs },
+
+                new Exercise { ExerciseId = 6, ExerciseName = "Hanging Leg Raise", musclegrp = MuscleGrp.Abs },
+
+                new Exercise { ExerciseId = 7, ExerciseName = "Barbell Bench Press", musclegrp = MuscleGrp.Chest },
+
+                new Exercise { ExerciseId = 8, ExerciseName = "Incline Dumbbell Fly", musclegrp = MuscleGrp.Chest },
+
+                new Exercise { ExerciseId = 9, ExerciseName = "Overhead Press", musclegrp = MuscleGrp.Shoulders },
+
+                new Exercise { ExerciseId = 10, ExerciseName = "Lateral Raise", musclegrp = MuscleGrp.Shoulders }
+
+            );
         }
     }
 }

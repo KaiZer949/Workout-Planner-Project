@@ -9,7 +9,7 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="src\Components\Fetch\" />
     <Folder Include="src\Css\" />
-    <Folder Include="src\routes\" />
   </ItemGroup>
 </Project>

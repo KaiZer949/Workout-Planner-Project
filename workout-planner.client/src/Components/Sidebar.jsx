@@ -21,11 +21,11 @@ const Sidebar = () => {
                 <ul>
                     <li className="menu-item active">
                         <FaHome className="icon" />                         
-                        <span>Dashboard</span>
+                        <span>Home</span>
                     </li>
                     <li className="menu-item">
                         <FaChartLine className="icon" />
-                        <span>Workouts</span>
+                        <span>Workout Plan</span>
                     </li>
                 </ul>
 

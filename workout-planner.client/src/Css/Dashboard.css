@@ -1,0 +1,132 @@
+.builder-container {
+    padding: 20px;
+    width: 100%;
+    min-height: 100%;
+    background-color: #121212; 
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.builder-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.routine-name-input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #333;
+    color: #00ff88; 
+    font-size: 1.5rem;
+    font-weight: bold;
+    outline: none;
+    width: 70%;
+}
+
+    .routine-name-input:focus {
+        border-bottom-color: #00ff88;
+    }
+
+.save-btn {
+    background-color: #00ff88;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.exercise-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.exercise-card {
+    width: 100%;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+    .card-header h3 {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+
+.table-header, .set-row {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 1.5fr 0.5fr;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+.table-header {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.set-row {
+    margin-bottom: 8px;
+}
+
+    .set-row input {
+        background: #2a2a2a;
+        border: 1px solid #444;
+        color: white;
+        padding: 8px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+.add-set-btn {
+    width: 100%;
+    background: transparent;
+    border: 1px dashed #555;
+    color: #888;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .add-set-btn:hover {
+        color: #fff;
+        border-color: #fff;
+    }
+
+.add-exercise-card {
+    width: 100%;
+    padding: 20px;
+    background: #1e1e1e;
+    border: 2px dashed #333;
+    color: #888;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.remove-btn, .delete-set {
+    background: none;
+    border: none;
+    color: #ff4444;
+    cursor: pointer;
+    font-size: 1.1rem;
+}

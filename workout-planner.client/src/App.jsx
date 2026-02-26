@@ -16,7 +16,7 @@ function App() {
 
 
                 <Route
-                    path="*"
+                    path="*"    
                     element={
                         <div className="app-layout">
                             <Sidebar />

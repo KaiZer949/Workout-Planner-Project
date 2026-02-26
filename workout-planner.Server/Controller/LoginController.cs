@@ -33,7 +33,9 @@ namespace workout_planner.Server.Controller
             if (token == null) return BadRequest("No token generated, user is null");
             var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);    //added this cuz we dont want an entire internal object structure generated, we want only the token
 
-            return Ok(jwtToken);
+            //if written this return Ok(jwtToken); backend sends raw string as the body but front end expects json so return Ok( new {token = jwtToken});
+
+            return Ok(new { token = jwtToken});    
 
         }
 

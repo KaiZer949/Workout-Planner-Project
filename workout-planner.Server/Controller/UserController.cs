@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using workout_planner.Server.Database;
 using workout_planner.Server.DTO;
@@ -37,7 +38,7 @@ namespace workout_planner.Server.Controller
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> AddUsers([FromBody] UserDTO user)
+        public async Task<ActionResult> AddUsers([FromBody] UserDTO user)
         {
             if (user == null) return BadRequest("No user to add");
         
@@ -63,7 +64,7 @@ namespace workout_planner.Server.Controller
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public IActionResult UpdateUser()
+        public ActionResult UpdateUser()
         {
             return null;
         }
@@ -74,9 +75,17 @@ namespace workout_planner.Server.Controller
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public IActionResult DeleteUser()
+        public async Task<ActionResult> DeleteUser(int id)
         {
-            return null;
+            if(id == null)  return BadRequest("No id is passed"); 
+
+            var user =  await _db.Users.Where((e) => e.Id == id).FirstOrDefaultAsync();
+            if (user == null) return NotFound($"No User with id:{id} found"); 
+
+            _db.Users.Remove(user);
+            await _db.SaveChangesAsync();
+
+            return Ok($"User with id:{id} removed successfully");
         }
         
     }

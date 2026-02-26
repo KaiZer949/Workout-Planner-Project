@@ -25,7 +25,7 @@ const Login = () => {
         }
 
         const url = "https://localhost:7183/api/Login"
-        await fetch(url, {
+        const response = await fetch(url, {
 
             method: "POST",
             headers: {
@@ -35,6 +35,9 @@ const Login = () => {
             body: JSON.stringify({ username, password }),
 
         });
+        if (!response.ok) { console.log("Unable to connect to API"); }
+        const data = await response.json();
+        localStorage.setItem("token:",data.token)
     }
 
     return (

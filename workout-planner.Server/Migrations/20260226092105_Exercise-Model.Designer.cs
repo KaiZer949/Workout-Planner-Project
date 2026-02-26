@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using workout_planner.Server.Database;
 
@@ -10,9 +11,11 @@ using workout_planner.Server.Database;
 namespace workout_planner.Server.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20260226092105_Exercise-Model")]
+    partial class ExerciseModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,7 +44,7 @@ namespace workout_planner.Server.Migrations
 
                     b.HasKey("ExerciseId");
 
-                    b.ToTable("Exercise", (string)null);
+                    b.ToTable("Exercise");
 
                     b.HasData(
                         new
@@ -136,7 +139,7 @@ namespace workout_planner.Server.Migrations
                     b.HasIndex("Username")
                         .IsUnique();
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
 
                     b.HasData(
                         new
