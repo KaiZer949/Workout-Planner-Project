@@ -5,6 +5,8 @@ namespace workout_planner.Server.Database
 {
     public static class DataSeeding
     {
+
+
         public static  void Seeding(ModelBuilder model)
         {
             model.Entity<Users>().HasData(
@@ -35,6 +37,29 @@ namespace workout_planner.Server.Database
                 new Exercise { ExerciseId = 9, ExerciseName = "Overhead Press", musclegrp = MuscleGrp.Shoulders },
 
                 new Exercise { ExerciseId = 10, ExerciseName = "Lateral Raise", musclegrp = MuscleGrp.Shoulders }
+
+            );
+
+            model.Entity<Workout>().HasData(
+
+                new Workout
+                {
+                    id = GuidIds.WorkoutAId,
+                    WorkoutName = "Workout A",
+                    WorkoutDescription = "Full Body"
+                },
+                new Workout
+                {
+                    id = GuidIds.DummyWorkoutId,
+                    WorkoutName = "Dummy Workout",
+                    WorkoutDescription = "DummyData"
+                },
+                new Workout
+                {
+                    id = GuidIds.DummyWorkoutAId,
+                    WorkoutName = "Dummy Workout A",
+                    WorkoutDescription = "Dummy"
+                }
 
             );
         }

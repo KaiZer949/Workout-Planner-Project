@@ -14,6 +14,7 @@ namespace workout_planner.Server.Database
         //applyconfig(blueprint) is telling EF Core how to build the table is enough for it to realize that the table needs to exist in the database.
         //But without dbset you cannot use _db.Exercise<T>
         public DbSet<Exercise> Exercise { get; set; }     
+        public DbSet<Workout> Workout { get; set; }     
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +24,7 @@ namespace workout_planner.Server.Database
 
             modelBuilder.ApplyConfiguration(new UsersConfiguration());
             modelBuilder.ApplyConfiguration(new ExerciseConfiguration());
+            modelBuilder.ApplyConfiguration(new WorkoutConfiguration());
 
         }
 
@@ -72,6 +74,32 @@ namespace workout_planner.Server.Database
                     .HasConversion<String>();
 
 
+            }
+
+        }
+        public class WorkoutConfiguration : IEntityTypeConfiguration<Workout> { 
+
+            public void Configure(EntityTypeBuilder<Workout> model)
+            {
+                model.Property(k => k.id)
+                    .IsRequired()
+                    .ValueGeneratedOnAdd();
+
+                model.Property(k => k.WorkoutName)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .HasColumnName("Workout Name");
+
+
+                model.Property(k => k.WorkoutDescription)
+                    .IsRequired()
+                    .HasMaxLength(250);
+
+                model.HasMany(e => e.Exercises)
+                     .WithMany(e => e.Workouts)
+                     .UsingEntity(d => d.HasData(new { Workoutsid = GuidIds.WorkoutAId, ExercisesExerciseId = 1 }, 
+                                                 new { Workoutsid = GuidIds.WorkoutAId, ExercisesExerciseId = 7 }, 
+                                                 new { Workoutsid = GuidIds.WorkoutAId, ExercisesExerciseId = 9 }));
             }
 
         }

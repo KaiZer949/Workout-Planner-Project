@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using workout_planner.Server.Database;
+using workout_planner.Server.DTO;
 using workout_planner.Server.Models;
 
 namespace workout_planner.Server.Controller
@@ -8,21 +11,27 @@ namespace workout_planner.Server.Controller
     [ApiController]
     public class WorkoutController : ControllerBase
     {
-        public WorkoutController()
+        private readonly DatabaseContext _db;
+        public WorkoutController(DatabaseContext db)
         {
+            _db = db;
+        }
+
+        [HttpGet("getWorkouts")]
+        public List<Workout> getWorkouts()
+        {
+            return _db.Workout.ToList();
             
         }
 
-        [HttpGet]
-        public void getWorkouts()
-        {
-
-        }
-
         [HttpPost]
-        public void createWorkout()
+        public void createWorkout([FromBody] WorkoutDTO dto)
         {
-                
+            var newWorkout = new Workout()
+            {
+                WorkoutName = dto.WorkoutName,
+                WorkoutDescription = dto.WorkoutDescription,
+            };
         }
 
         [HttpPut]
@@ -37,6 +46,6 @@ namespace workout_planner.Server.Controller
 
         }
 
-
+    
     }
 }

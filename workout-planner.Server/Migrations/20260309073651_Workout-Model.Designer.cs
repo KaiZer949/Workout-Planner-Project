@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using workout_planner.Server.Database;
 
@@ -11,9 +12,11 @@ using workout_planner.Server.Database;
 namespace workout_planner.Server.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20260309073651_Workout-Model")]
+    partial class WorkoutModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,23 +38,6 @@ namespace workout_planner.Server.Migrations
                     b.HasIndex("Workoutsid");
 
                     b.ToTable("ExerciseWorkout");
-
-                    b.HasData(
-                        new
-                        {
-                            ExercisesExerciseId = 1,
-                            Workoutsid = new Guid("a1b2c3d4-e5f6-47a8-b9c0-d1e2f3a4b5c6")
-                        },
-                        new
-                        {
-                            ExercisesExerciseId = 7,
-                            Workoutsid = new Guid("a1b2c3d4-e5f6-47a8-b9c0-d1e2f3a4b5c6")
-                        },
-                        new
-                        {
-                            ExercisesExerciseId = 9,
-                            Workoutsid = new Guid("a1b2c3d4-e5f6-47a8-b9c0-d1e2f3a4b5c6")
-                        });
                 });
 
             modelBuilder.Entity("workout_planner.Server.Models.Exercise", b =>
@@ -210,26 +196,6 @@ namespace workout_planner.Server.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Workout");
-
-                    b.HasData(
-                        new
-                        {
-                            id = new Guid("a1b2c3d4-e5f6-47a8-b9c0-d1e2f3a4b5c6"),
-                            WorkoutDescription = "Full Body",
-                            WorkoutName = "Workout A"
-                        },
-                        new
-                        {
-                            id = new Guid("b2c3d4e5-f6a7-48b9-c0d1-e2f3a4b5c6d7"),
-                            WorkoutDescription = "DummyData",
-                            WorkoutName = "Dummy Workout"
-                        },
-                        new
-                        {
-                            id = new Guid("c3d4e5f6-a7b8-49c9-d0e1-f2a3b4c5d6e7"),
-                            WorkoutDescription = "Dummy",
-                            WorkoutName = "Dummy Workout A"
-                        });
                 });
 
             modelBuilder.Entity("ExerciseWorkout", b =>

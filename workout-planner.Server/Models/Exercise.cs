@@ -21,5 +21,7 @@
         public string ExerciseName { get; set; }
 
         public MuscleGrp musclegrp{  get; set; }
+
+        public ICollection<Workout> Workouts{ get; set; }
     }
 }
